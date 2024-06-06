@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "DisplayAll_Load";
+}
+
+<h2>Display All Details</h2>
+<div>
+    @using (Html.BeginForm("DisplayAll_Load","SelectAllUser",FormMethod.Get))
+            {
+                <table id="t01" class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Photo</th>
+                    </tr>
+                    @foreach (var item in ViewBag.userdetails)
+                {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Address</td>
+                    <td>@item.Email</td>
+                    <td>
+                        <img src="@Url.Content(item.Photo)" alt="Image" height="150" width="150"/>
+                    </td>
+                </tr>
+                }
+                </table>
+            }
+</div>
+<style>
+    #t01{
+        background-color:crimson;
+    }
+    h1{
+        color:black;
+    }
+    #t01 th{
+        color:antiquewhite;
+        background-color:black;
+    }
+    #t01 td{
+        color:blueviolet;
+        padding:40px;
+    }
+</style>
+
